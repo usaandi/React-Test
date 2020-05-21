@@ -15,7 +15,7 @@ class Main extends Component {
 
 
     filterNames = (NamesList) => {
-       return NamesList.sort((a,b) => a.username.localeCompare(b.username));
+        return NamesList.sort((a, b) => a.username.localeCompare(b.username));
     }
 
     componentDidMount() {
@@ -24,11 +24,23 @@ class Main extends Component {
         })).catch(error => console.log(error))
     }
 
+    pushToArray = name => {
+        console.log(name)
+        this.setState(state => {
+            const users = state.users.concat({username: name});
+            return {
+                users,
+            }
+        })
+    }
+
     render() {
         return (
             <div>
                 <Header/>
-                <Body userData={this.state.users}/>
+                <Body
+                    onChange={e => this.pushToArray(e)}
+                    userData={this.state.users}/>
                 <Footer/>
             </div>
         )
