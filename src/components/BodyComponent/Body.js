@@ -2,8 +2,8 @@ import React, {useState} from "react";
 
 
 const Body = props => {
-    let initialState = ''
-    let [nameState, setNameState] = useState(initialState);
+
+    let [nameState, setNameState] = useState('');
 
     const onChangeEvent = e => {
         setNameState(e.target.value)
@@ -15,7 +15,7 @@ const Body = props => {
 
     }
     const clearState = () => {
-        setNameState(initialState);
+        setNameState('');
     };
 
     return (
